@@ -1,0 +1,9 @@
+Flask
+Flask-Cors
+Flask-Limiter
+flask-bcrypt
+requests
+requests-unixsocket
+Werkzeug
+python-dotenv
+flask-bcrypt

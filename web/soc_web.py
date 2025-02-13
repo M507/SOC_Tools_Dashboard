@@ -1,21 +1,24 @@
 from flask import Flask, render_template, request, send_file
+import re
 
 app = Flask(__name__)
 
 # List of SOC tools with their names, URLs, and descriptions
 SOC_TOOLS = [
-    {"name": "VirusTotal", "url": "https://www.virustotal.com", "description": "VirusTotal is a free service that analyzes files and URLs for viruses, worms, trojans, and other kinds of malicious content."},
-    {"name": "AbuseIPDB", "url": "https://www.abuseipdb.com", "description": "AbuseIPDB is a project dedicated to helping combat the spread of hackers, spammers, and abusive activity on the internet."},
-    {"name": "Hybrid Analysis", "url": "https://www.hybrid-analysis.com", "description": "Hybrid Analysis provides automated malware analysis to extract host-based and network indicators."},
-    {"name": "Any.Run", "url": "https://any.run", "description": "Any.Run is an interactive malware analysis sandbox for security professionals."},
-    {"name": "UrlScan.io", "url": "https://urlscan.io", "description": "UrlScan.io is a sandbox for scanning and analyzing URLs for malicious content."},
-    {"name": "OTX AlienVault", "url": "https://otx.alienvault.com", "description": "OTX AlienVault is a platform for sharing threat intelligence with a global community."},
-    {"name": "ThreatCrowd", "url": "https://www.threatcrowd.org", "description": "ThreatCrowd provides a search engine for threat intelligence and digital forensics."},
-    {"name": "ThreatMiner", "url": "https://www.threatminer.org", "description": "ThreatMiner provides contextualized threat intelligence data."},
-    {"name": "Shodan", "url": "https://www.shodan.io", "description": "Shodan is a search engine for Internet-connected devices."},
-    {"name": "Censys", "url": "https://censys.io", "description": "Censys helps organizations identify and monitor assets exposed on the internet."},
-    {"name": "Fortiguard", "url": "https://www.fortiguard.com", "description": "Fortiguard provides real-time threat intelligence services."},
-    {"name": "Talos Intelligence", "url": "https://talosintelligence.com", "description": "Talos Intelligence is Cisco’s threat research and analysis team."},
+
+    {"name": "Reconfigure Proxy", "url": "https://www.virustotal.com", "doc_url": "http://127.0.0.1:8000/Reconfigure_Proxy/", "description": "VirusTotal is a free service that analyzes files and URLs for viruses, worms, trojans, and other kinds of malicious content."},
+    {"name": "VirusTotal", "url": "https://www.virustotal.com", "doc_url": "http://127.0.0.1:8000/VirusTotal/", "description": "VirusTotal is a free service that analyzes files and URLs for viruses, worms, trojans, and other kinds of malicious content."},
+    {"name": "AbuseIPDB", "url": "https://www.abuseipdb.com", "doc_url": "http://127.0.0.1:8000", "description": "AbuseIPDB is a project dedicated to helping combat the spread of hackers, spammers, and abusive activity on the internet."},
+    {"name": "Hybrid Analysis", "url": "https://www.hybrid-analysis.com", "doc_url": "http://127.0.0.1:8000", "description": "Hybrid Analysis provides automated malware analysis to extract host-based and network indicators."},
+    {"name": "Any.Run", "url": "https://any.run", "doc_url": "http://127.0.0.1:8000", "description": "Any.Run is an interactive malware analysis sandbox for security professionals."},
+    {"name": "UrlScan.io", "url": "https://urlscan.io", "doc_url": "http://127.0.0.1:8000", "description": "UrlScan.io is a sandbox for scanning and analyzing URLs for malicious content."},
+    {"name": "OTX AlienVault", "url": "https://otx.alienvault.com", "doc_url": "http://127.0.0.1:8000", "description": "OTX AlienVault is a platform for sharing threat intelligence with a global community."},
+    {"name": "ThreatCrowd", "url": "https://www.threatcrowd.org", "doc_url": "http://127.0.0.1:8000", "description": "ThreatCrowd provides a search engine for threat intelligence and digital forensics."},
+    {"name": "ThreatMiner", "url": "https://www.threatminer.org", "doc_url": "http://127.0.0.1:8000", "description": "ThreatMiner provides contextualized threat intelligence data."},
+    {"name": "Shodan", "url": "https://www.shodan.io", "doc_url": "http://127.0.0.1:8000", "description": "Shodan is a search engine for Internet-connected devices."},
+    {"name": "Censys", "url": "https://censys.io", "doc_url": "http://127.0.0.1:8000", "description": "Censys helps organizations identify and monitor assets exposed on the internet."},
+    {"name": "Fortiguard", "url": "https://www.fortiguard.com", "doc_url": "http://127.0.0.1:8000", "description": "Fortiguard provides real-time threat intelligence services."},
+    {"name": "Talos Intelligence", "url": "https://talosintelligence.com", "doc_url": "http://127.0.0.1:8000", "description": "Talos Intelligence is Cisco’s threat research and analysis team."},
 ]
 
 PROXY_INFO = {

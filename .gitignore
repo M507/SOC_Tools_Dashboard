@@ -1,0 +1,8 @@
+.*
+!.gitignore
+starting_from_0_www/
+__pycache__
+*.pyc
+*.pem
+SOC_Tools_Dashboard/
+venv/

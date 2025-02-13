@@ -1,0 +1,22 @@
+site_name: Wiki
+site_url: http://soc.shellcode.blog
+theme:
+  name: 'mkdocs'
+  palette: 
+    primary: 'black'
+    accent: 'orange'
+markdown_extensions:
+  - toc:
+      permalink: true
+  - admonition
+  - attr_list
+  - codehilite:
+      linenums: true
+nav:
+  - 'Home': 'index.md'
+  - 'API':
+    - 'Homepage': "API/index.md"
+  - 'VirusTotal':
+    - 'Homepage': "VirusTotal/index.md"
+  - 'Reconfigure_Proxy':
+    - 'Homepage': "Reconfigure_Proxy/index.html"

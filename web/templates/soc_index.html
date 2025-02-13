@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOC Tools Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            width: 100%;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 100%;
+            height: 100vh;
+            background: white;
+            box-shadow: none;
+            border-radius: 0;
+            overflow: hidden;
+        }
+
+        .grid {
+            padding: 20px;
+            background: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-y: auto;
+            
+        }
+
+        .iframe-container {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 5px 0;
+            background: #007bff;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+            border: none;
+        }
+
+        .button:hover {
+            background: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Left side: Button Grid -->
+        <div class="grid">
+            <button class="button proxy-button" onclick="window.location.href='/download_proxy_config'">Proxy Configuration</button>
+            {% for tool in soc_tools %}
+                <button class="button" onclick="loadDocumentation('{{ tool.doc_url }}')">
+                    {{ tool.name }}
+                </button>
+            {% endfor %}
+        </div>
+
+        <!-- Right side: Iframe Container -->
+        <div class="iframe-container">
+            <iframe id="docFrame" src=""></iframe>
+        </div>
+    </div>
+
+    <script>
+        function loadDocumentation(docUrl) {
+            document.getElementById("docFrame").src = docUrl;
+        }
+
+        function showProxyInfo() {
+            let iframe = document.getElementById("docFrame");
+            let proxyContent = `
+                <html>
+                <head><title>Reconfigure Proxy</title></head>
+                <body>
+                    <h2>{{ proxy_info.name }}</h2>
+                    <p>{{ proxy_info.description }}</p>
+                    <ul>
+                        {% for step in proxy_info.steps %}
+                            <li>{{ step | safe }}</li>
+                        {% endfor %}
+                    </ul>
+                </body>
+                </html>
+            `;
+            let blob = new Blob([proxyContent], { type: "text/html" });
+            let url = URL.createObjectURL(blob);
+            iframe.src = url;
+        }
+    </script>
+
+</body>
+</html>
