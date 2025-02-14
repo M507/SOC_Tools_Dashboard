@@ -12,7 +12,7 @@ Ensure you have the following installed before running the project:
 Clone the repository:
 ```sh
 git clone https://github.com/M507/SOC_Tools_Dashboard.git
-cd your-repo
+cd SOC_Tools_Dashboard
 ```
 
 ## Running with Docker Compose
@@ -36,7 +36,7 @@ docker compose restart
 
 The project consists of the following services:
 
-- Web Application runs on port `5080`
+- The main web application runs on port `5080`
 - MkDocs serves documentation on port `5081`
 - CyberChef runs on port `5082`
 
