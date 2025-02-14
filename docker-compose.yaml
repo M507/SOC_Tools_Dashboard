@@ -25,4 +25,4 @@ services:
     image: mpepping/cyberchef
     container_name: cyberchef
     ports:
-      - "5083:8000"
+      - "5082:8000"
