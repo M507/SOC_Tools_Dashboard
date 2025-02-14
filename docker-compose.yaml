@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  flask_app:
+    build:
+      context: ./web
+    ports:
+      - "5080:5080"
+    volumes:
+      - ./web:/app
+    environment:
+      - FLASK_APP=soc_web.py
+      - FLASK_ENV=development
+    command: python soc_web.py
+
+  mkdocs:
+    image: squidfunk/mkdocs-material
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./mkdocs:/docs
+    command: mkdocs serve -a 0.0.0.0:8000
+
+  cyberchef:
+    image: mpepping/cyberchef
+    container_name: cyberchef
+    ports:
+      - "6001:8000"
