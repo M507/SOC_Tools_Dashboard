@@ -16,7 +16,7 @@ services:
   mkdocs:
     image: squidfunk/mkdocs-material
     ports:
-      - "8000:8000"
+      - "5081:8000"
     volumes:
       - ./mkdocs:/docs
     command: ["serve", "-a", "0.0.0.0:8000"]
@@ -25,4 +25,4 @@ services:
     image: mpepping/cyberchef
     container_name: cyberchef
     ports:
-      - "6001:8000"
+      - "5083:8000"

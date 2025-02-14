@@ -1,29 +1,18 @@
 from flask import Flask, render_template, request, send_file
 import re
+import json
 
 app = Flask(__name__)
 
-# List of SOC tools with their names, URLs, and descriptions
-SOC_TOOLS = [
-    {"name": "Reconfigure Proxy", "url": "https://www.virustotal.com", "doc_url": "http://tools.shellcode.blog:8000/Reconfigure_Proxy/", "description": "VirusTotal is a free service that analyzes files and URLs for viruses, worms, trojans, and other kinds of malicious content."},
-    {
-        "name": "CyberChef",
-        "url": "http://cyberchef.shellcode.blog:6001/",
-        "description": "CyberChef is a web-based tool for encoding, decoding, encryption, and data transformation, widely used in cybersecurity and data analysis."
-    },
-    {"name": "VirusTotal", "url": "https://www.virustotal.com", "doc_url": "http://tools.shellcode.blog:8000/VirusTotal/", "description": "VirusTotal is a free service that analyzes files and URLs for viruses, worms, trojans, and other kinds of malicious content."},
-    {"name": "AbuseIPDB", "url": "https://www.abuseipdb.com", "doc_url": "http://tools.shellcode.blog:8000/AbuseIPDB/", "description": "AbuseIPDB is a project dedicated to helping combat the spread of hackers, spammers, and abusive activity on the internet."},
-    {"name": "Hybrid Analysis", "url": "https://www.hybrid-analysis.com", "doc_url": "http://tools.shellcode.blog:8000/Hybrid/", "description": "Hybrid Analysis provides automated malware analysis to extract host-based and network indicators."},
-    {"name": "Any.Run", "url": "https://any.run", "doc_url": "http://tools.shellcode.blog:8000/Any_Run/", "description": "Any.Run is an interactive malware analysis sandbox for security professionals."},
-    {"name": "UrlScan.io", "url": "https://urlscan.io", "doc_url": "http://tools.shellcode.blog:8000/UrlScan.io/", "description": "UrlScan.io is a sandbox for scanning and analyzing URLs for malicious content."},
-    {"name": "OTX AlienVault", "url": "https://otx.alienvault.com", "doc_url": "http://tools.shellcode.blog:8000/OTX_AlienVault/", "description": "OTX AlienVault is a platform for sharing threat intelligence with a global community."},
-    {"name": "ThreatCrowd", "url": "https://www.threatcrowd.org", "doc_url": "http://tools.shellcode.blog:8000/ThreatCrowd/", "description": "ThreatCrowd provides a search engine for threat intelligence and digital forensics."},
-    {"name": "ThreatMiner", "url": "https://www.threatminer.org", "doc_url": "http://tools.shellcode.blog:8000/ThreatMiner/", "description": "ThreatMiner provides contextualized threat intelligence data."},
-    {"name": "Shodan", "url": "https://www.shodan.io", "doc_url": "http://tools.shellcode.blog:8000/Shodan/", "description": "Shodan is a search engine for Internet-connected devices."},
-    {"name": "Censys", "url": "https://censys.io", "doc_url": "http://tools.shellcode.blog:8000/Censys/", "description": "Censys helps organizations identify and monitor assets exposed on the internet."},
-    {"name": "Fortiguard", "url": "https://www.fortiguard.com", "doc_url": "http://tools.shellcode.blog:8000/Fortiguard/", "description": "Fortiguard provides real-time threat intelligence services."},
-    {"name": "Talos Intelligence", "url": "https://talosintelligence.com", "doc_url": "http://tools.shellcode.blog:8000/Talos_Intelligence/", "description": "Talos Intelligence is Cisco’s threat research and analysis team."},
-]
+import json
+
+with open("tools.json", "r", encoding="utf-8") as file:
+    content = file.read().strip()  # Remove leading/trailing spaces or newlines
+    print(content)  # Debugging: Print the content before parsing
+    SOC_TOOLS = json.loads(content)  # Use `json.loads()` to debug raw content
+
+# Print to verify
+print(SOC_TOOLS)
 
 PROXY_INFO = {
     "name": "Reconfigure Proxy",

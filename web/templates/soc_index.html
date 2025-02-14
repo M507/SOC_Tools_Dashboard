@@ -103,6 +103,34 @@
     </div>
 
     <script>
+
+document.addEventListener("DOMContentLoaded", function () {
+    setDefaultContent();
+});
+
+function setDefaultContent() {
+    let iframe = document.getElementById("docFrame");
+    let doc = iframe.contentWindow.document;
+
+    doc.open();
+    doc.write(`
+        <html>
+        <head>
+            <title>Welcome to SOC Tools</title>
+            <style>
+                body { font-family: Arial, sans-serif; text-align: center; padding: 20px; background: #f8f9fa; }
+            </style>
+        </head>
+        <body>
+            <h2>Welcome to SOC Tools Dashboard</h2>
+            <p>Select a tool from the left panel to begin.</p>
+        </body>
+        </html>
+    `);
+    doc.close();
+}
+
+
         function loadDocumentation(docUrl) {
             document.getElementById("docFrame").src = docUrl;
         }
