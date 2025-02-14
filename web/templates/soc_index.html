@@ -69,14 +69,28 @@
             background: #0056b3;
         }
 
+        .logo {
+            
+            width: 100px; /* Adjust width */
+            
+        }
+        .tagline {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 10px;
+            background: #f8f9fa;
+            font-size: 18px;
+        }
+
     </style>
 </head>
 <body>
 
     <div class="container">
         <!-- Left side: Button Grid -->
-        <img src="logo.png" alt="SOC Tools Logo" class="logo"> 
         <div class="grid">
+            <img src="{{ url_for('static', filename='logo.webp') }}" alt="SOC Tools Logo" class="logo">
+            <div class="tagline">SOC all the things</div>
             <button class="button proxy-button" onclick="window.location.href='/download_proxy_config'">Proxy Configuration</button>
            
             

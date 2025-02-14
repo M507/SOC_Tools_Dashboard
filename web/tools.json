@@ -1,13 +1,13 @@
 [
-    {"name": "Reconfigure Proxy", "url": "https://www.virustotal.com", "doc_url": "http://tools.shellcode.blog:8000/Reconfigure_Proxy/", "description": "VirusTotal is a free service that analyzes files and URLs for viruses, worms, trojans, and other kinds of malicious content."},
+    {"name": "Reconfigure Proxy", "url": "https://www.virustotal.com", "doc_url": "http://tools.shellcode.blog:5081/Reconfigure_Proxy/", "description": "VirusTotal is a free service that analyzes files and URLs for viruses, worms, trojans, and other kinds of malicious content."},
     {
         "name": "CyberChef",
-        "url": "http://cyberchef.shellcode.blog:6001/",
+        "url": "http://tools.shellcode.blog:5082/",
         "description": "CyberChef is a web-based tool for encoding, decoding, encryption, and data transformation, widely used in cybersecurity and data analysis."
     },
-    {"name": "VirusTotal", "url": "https://www.virustotal.com", "doc_url": "http://tools.shellcode.blog:8000/VirusTotal/", "description": "VirusTotal is a free service that analyzes files and URLs for viruses, worms, trojans, and other kinds of malicious content."},
-    {"name": "AbuseIPDB", "url": "https://www.abuseipdb.com", "doc_url": "http://tools.shellcode.blog:8000/AbuseIPDB/", "description": "AbuseIPDB is a project dedicated to helping combat the spread of hackers, spammers, and abusive activity on the internet."},
-    {"name": "Hybrid Analysis", "url": "https://www.hybrid-analysis.com", "doc_url": "http://tools.shellcode.blog:8000/Hybrid/", "description": "Hybrid Analysis provides automated malware analysis to extract host-based and network indicators."},
-    {"name": "Any.Run", "url": "https://any.run", "doc_url": "http://tools.shellcode.blog:8000/Any_Run/", "description": "Any.Run is an interactive malware analysis sandbox for security professionals."},
-    {"name": "UrlScan.io", "url": "https://urlscan.io", "doc_url": "http://tools.shellcode.blog:8000/UrlScan.io/", "description": "UrlScan.io is a sandbox for scanning and analyzing URLs for malicious content."}
+    {"name": "VirusTotal", "url": "https://www.virustotal.com", "doc_url": "http://tools.shellcode.blog:5081/VirusTotal/", "description": "VirusTotal is a free service that analyzes files and URLs for viruses, worms, trojans, and other kinds of malicious content."},
+    {"name": "AbuseIPDB", "url": "https://www.abuseipdb.com", "doc_url": "http://tools.shellcode.blog:5081/AbuseIPDB/", "description": "AbuseIPDB is a project dedicated to helping combat the spread of hackers, spammers, and abusive activity on the internet."},
+    {"name": "Hybrid Analysis", "url": "https://www.hybrid-analysis.com", "doc_url": "http://tools.shellcode.blog:5081/Hybrid/", "description": "Hybrid Analysis provides automated malware analysis to extract host-based and network indicators."},
+    {"name": "Any.Run", "url": "https://any.run", "doc_url": "http://tools.shellcode.blog:5081/Any_Run/", "description": "Any.Run is an interactive malware analysis sandbox for security professionals."},
+    {"name": "UrlScan.io", "url": "https://urlscan.io", "doc_url": "http://tools.shellcode.blog:5081/UrlScan.io/", "description": "UrlScan.io is a sandbox for scanning and analyzing URLs for malicious content."}
 ]
