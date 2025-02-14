@@ -20,3 +20,25 @@ nav:
     - 'Homepage': "VirusTotal/index.md"
   - 'Reconfigure_Proxy':
     - 'Homepage': "Reconfigure_Proxy/index.html"
+  - 'AbuseIPDB':
+    - 'Homepage': "AbuseIPDB/index.md"
+  - 'Hybrid Analysis':
+    - 'Homepage': "Hybrid_Analysis.md"
+  - 'Any.Run':
+    - 'Homepage': "Any_Run.md"
+  - 'UrlScan.io':
+    - 'Homepage': "UrlScan_io.md"
+  - 'OTX AlienVault':
+    - 'Homepage': "OTX_AlienVault.md"
+  - 'ThreatCrowd':
+    - 'Homepage': "ThreatCrowd.md"
+  - 'ThreatMiner':
+    - 'Homepage': "ThreatMiner.md"
+  - 'Shodan':
+    - 'Homepage': "Shodan.md"
+  - 'Censys':
+    - 'Homepage': "Censys.md"
+  - 'Fortiguard':
+    - 'Homepage': "Fortiguard.md"
+  - 'Talos Intelligence':
+    - 'Homepage': "Talos_Intelligence.md"

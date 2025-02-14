@@ -19,7 +19,7 @@ services:
       - "8000:8000"
     volumes:
       - ./mkdocs:/docs
-    command: mkdocs serve -a 0.0.0.0:8000
+    command: ["serve", "-a", "0.0.0.0:8000"]
 
   cyberchef:
     image: mpepping/cyberchef

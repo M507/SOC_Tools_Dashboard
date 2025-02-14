@@ -77,10 +77,22 @@
         <!-- Left side: Button Grid -->
         <div class="grid">
             <button class="button proxy-button" onclick="window.location.href='/download_proxy_config'">Proxy Configuration</button>
+           
+            
             {% for tool in soc_tools %}
+                {% if tool.url and not tool.doc_url %}
+                    <button class="button" onclick="window.open('{{ tool.url }}', '_blank')">
+                        {{ tool.name }}
+                    </button>
+                {% endif %}
+            {% endfor %}
+
+            {% for tool in soc_tools %}
+            {% if tool.doc_url %}
                 <button class="button" onclick="loadDocumentation('{{ tool.doc_url }}')">
                     {{ tool.name }}
                 </button>
+                {% endif %}
             {% endfor %}
         </div>
 
