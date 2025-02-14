@@ -14,23 +14,9 @@ with open("tools.json", "r", encoding="utf-8") as file:
 # Print to verify
 print(SOC_TOOLS)
 
-PROXY_INFO = {
-    "name": "Reconfigure Proxy",
-    "description": "Follow these steps to configure your proxy settings using FoxyProxy:",
-    "steps": [
-        "Install FoxyProxy for your browser:",
-        "- <a href='https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp' target='_blank'>Chrome Extension</a>",
-        "- <a href='https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/' target='_blank'>Firefox Add-on</a>",
-        "Download and import the proxy configuration file:",
-        "- <a href='/download_proxy_config'>Download FoxyProxy Configuration</a>",
-        "Open FoxyProxy and import the downloaded file.",
-        "Enable the proxy profile 'SOC Proxy'."
-    ]
-}
-
 @app.route('/')
 def index():
-    return render_template('soc_index.html', soc_tools=SOC_TOOLS, proxy_info=PROXY_INFO)
+    return render_template('soc_index.html', soc_tools=SOC_TOOLS)
 
 @app.route('/download_proxy_config')
 def download_proxy_config():

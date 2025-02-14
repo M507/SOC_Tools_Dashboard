@@ -75,6 +75,7 @@
 
     <div class="container">
         <!-- Left side: Button Grid -->
+        <img src="logo.png" alt="SOC Tools Logo" class="logo"> 
         <div class="grid">
             <button class="button proxy-button" onclick="window.location.href='/download_proxy_config'">Proxy Configuration</button>
            
@@ -137,20 +138,7 @@ function setDefaultContent() {
 
         function showProxyInfo() {
             let iframe = document.getElementById("docFrame");
-            let proxyContent = `
-                <html>
-                <head><title>Reconfigure Proxy</title></head>
-                <body>
-                    <h2>{{ proxy_info.name }}</h2>
-                    <p>{{ proxy_info.description }}</p>
-                    <ul>
-                        {% for step in proxy_info.steps %}
-                            <li>{{ step | safe }}</li>
-                        {% endfor %}
-                    </ul>
-                </body>
-                </html>
-            `;
+            let proxyContent = ``;
             let blob = new Blob([proxyContent], { type: "text/html" });
             let url = URL.createObjectURL(blob);
             iframe.src = url;
