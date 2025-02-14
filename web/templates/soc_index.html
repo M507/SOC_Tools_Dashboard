@@ -68,11 +68,14 @@
         .button:hover {
             background: #0056b3;
         }
-
         .logo {
             
             width: 100px; /* Adjust width */
-            
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .logo:hover {
+            transform: scale(1.1); /* Slightly enlarges the image */
+            opacity: 0.8; /* Makes it slightly transparent */
         }
         .tagline {
             font-family: Arial, sans-serif;
@@ -89,7 +92,9 @@
     <div class="container">
         <!-- Left side: Button Grid -->
         <div class="grid">
+        <a href="https://github.com/M507/SOC_Tools_Dashboard">
             <img src="{{ url_for('static', filename='logo.webp') }}" alt="SOC Tools Logo" class="logo">
+        </a>
             <div class="tagline">SOC all the things</div>
             <button class="button proxy-button" onclick="window.location.href='/download_proxy_config'">Proxy Configuration</button>
            
