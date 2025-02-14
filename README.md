@@ -1,6 +1,6 @@
 # SOC_Tools_Dashboard
 
-Soc all the things
+![Soc all the things](imgs/1.png)
 
 ## Prerequisites
 Ensure you have the following installed before running the project:
