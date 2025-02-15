@@ -1,0 +1,4 @@
+node_modules/** linguist-vendored
+vendor/** linguist-vendored
+*.html linguist-vendored
+*.lock linguist-vendored
