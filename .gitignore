@@ -1,5 +1,6 @@
 .*
 !.gitignore
+!.gitattributes
 !.env.example
 starting_from_0_www/
 __pycache__
