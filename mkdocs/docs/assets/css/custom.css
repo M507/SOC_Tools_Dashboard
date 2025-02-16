@@ -1,0 +1,15 @@
+/* Hide the top navigation bar */
+.md-header {
+    display: none !important;
+}
+
+/* Hide the left sidebar (table of contents) */
+.md-sidebar--primary {
+    display: none !important;
+}
+
+/* Expand the main content to take the full width */
+.md-content {
+    margin-left: 0 !important;
+    max-width: 100% !important;
+}

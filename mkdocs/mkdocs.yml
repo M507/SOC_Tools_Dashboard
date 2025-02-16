@@ -42,3 +42,6 @@ nav:
     - 'Homepage': "Fortiguard.md"
   - 'Talos Intelligence':
     - 'Homepage': "Talos_Intelligence.md"
+
+extra_css:
+  - assets/css/custom.css
